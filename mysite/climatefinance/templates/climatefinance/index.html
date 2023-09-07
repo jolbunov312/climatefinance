@@ -1,0 +1,48 @@
+{% extends 'climatefinance/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    {% block body %}
+
+        {% for project in project_list %}
+        <div class="row">
+            <div class="col-md-3 offset-md-2 nav-link">
+                <img class="card" height="150px" src="{{ project.project_image }}"/>
+
+            </div>
+            <div class="col-md-4 nav-link">
+                <h3>{{ project.project_name }}</h3>
+                <h4> {{ project.project_desc }} </h4>
+                <h5> ${{ project.project_price }} </h5>
+                <h6> {{ project.user_name }} </h6>
+
+            </div>
+            <div class="col-md-2 nav-link">
+                <a href="{% url 'climatefinance:detail' project.id %}" class="btn btn-success">Details</a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% endblock %}  
+        
+        <ul>
+            <li>
+                <a href="{% url 'climatefinance:detail' project.id %}">{{ project.project_name }}</a>
+            </li>
+        </ul>
+  
+
+
+</body>
+</html>

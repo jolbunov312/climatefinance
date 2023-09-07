@@ -1,0 +1,11 @@
+{% extends 'climatefinance/base.html' %}
+
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+    <h2>Are you sure that you want to delete the project {{ project.project_name}} ?</h2>
+    <button type="submit" >Confirm</button>
+</form>
+
+{% endblock %}
